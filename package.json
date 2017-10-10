@@ -1,0 +1,22 @@
+{
+  "name": "workout-logic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests/logic-test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jexeones24/tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jexeones24/tests/issues"
+  },
+  "homepage": "https://github.com/Jexeones24/tests#readme"
+}

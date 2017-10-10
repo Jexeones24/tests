@@ -1,3 +1,5 @@
+Practice on writing unit tests with the logic needed to randomly generate a CrossFit workout for a project idea.
+
 ## WORKOUT
 
 workout = {
@@ -15,80 +17,25 @@ workout = {
   reps: []
 }
 
-// is this the best way to structure workout object?
-// where should I put reps?
 
 ## NAME
-// best random name generator??
+// use random name generator like Faker?
 
 ## STYLE
-
-const styles = [ 'AMRAP', '3RFT', '5RFT', 'EMOM', 'E3MOM' ]
-const timeDomain = num
-
-// define a range() function to find range
-const range;
-if(timeDomain is between (6..15))
-  return range = 'short';
-else if(timeDomain is between(16..25))
-  return 'moderate';
-else (26..50)
-  return 'long';
-
-
-// define chooseRandomly() function
-const a = chooseRandomly('AMRAP' || '3RFT' || 'EMOM')
-const b = chooseRandomly('AMRAP' || '5RFT' || 'E3MOM')
-
-const style;
-if(range == 'short' || range == 'moderate')
-  return style = a;
-else
-  return style = b;
-
+// based on duration (short, moderate, long), choose random style
 
 ## NUMBER OF MOVEMENTS
-
-const timeDomain = timeDomain;
-// define range function to determine range
-const range = timeDomain.range()
-const style = style;
-
-// define range() function for timeDomain
-const numberOfMovements;
-
-if(style == 'AMRAP' && timeDomain.range(6-12))
-  then numberOfMovements = 2-3
-else if(style == 'AMRAP' && timeDomain.range(13-20))
-  then numberOfMovements = 3-4
-else if(style == 'AMRAP' && timeDomain.range(21-30))
-  then numberOfMovements = 4-5
-else if(style == 'AMRAP' && timeDomain.range(31-50))
-  then numberOfMovements = 5-6
-
-else if(style == '3RFT' && timeDomain.range(6-12))
-  then numberOfMovements = 2-3
-else if(style == '3RFT' && timeDomain.range(13-25))
-  then numberOfMovements = 3-4
-
-else if(style == '5RFT')
-  then numberOfMovements = chooseRandomly(3-5)
-
-else if(style == 'EMOM')
-  then numberOfMovements = chooseRandomly(2-3)
-else
-  then numberOfMovements = chooseRandomly(3-4)
-
-const numberOfMovements = numberOfMovements;
+// based on style and duration of workout (workouts of same style may have different duration)
 
 ## MOVEMENTS
-
+// choose movements from json-like file that i've made
 const movements = [ {}, {}, {}, ... ]
-// use chooseRandomly()
+let chosenMovements = random(movements, numberOfMovements)
 
 ## REPS
+// creates reps array
+// each element corresponds to respective movement in chosenMovements array
 
-const reps = []
 const totalWorkTime = (timeDomain * 60) * .75
 const timePerMovement = totalWorkTime/numberOfMovements
 const reps = timePerMovement/movement.secondsPerRep
@@ -104,21 +51,5 @@ const getReps = () => {
 // let repsArray = movements.map( m => m.getReps(); )
 
 
-if
-numberOfMovements = 2 && style = 'AMRAP'
-  reps =
-numberOfMovements = 2 && style = '3RFT'
-
-numberOfMovements = 2 && style = 'EMOM'
-
-numberOfMovements = 3 && style =
-numberOfMovements = 3 && style =
-numberOfMovements = 3 && style =
-numberOfMovements = 3 && style =
-numberOfMovements = 3 && style =
-
-numberOfMovements = 4 &&
-numberOfMovements = 5 &&
-numberOfMovements = 6 &&
 
 // use zip() to construct workout??
