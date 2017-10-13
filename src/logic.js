@@ -1,10 +1,11 @@
 const shortAndModerateStyles = ['AMRAP', '3RFT', 'EMOM']
 const longStyles = ['AMRAP', '5RFT', 'E3MOM']
-const movementsArr = require('../data.js');
+const data = require('../data.js');
+const movements = data.movements;
+const styles = data.styles;
 
 
 // check for valid time domain
-// needs to also accept number of elements to choose
 
 function random(arr, numOfItems){
   if(Array.isArray(arr) === false){
@@ -42,43 +43,18 @@ function chooseStyle(duration) {
   }
 }
 
-// put these in movements file and import at top??
-function showAMRAP(){
-  return movementsArr.AMRAP;
+
+function chooseNumberOfMovements(name, duration) {
+  let styleObj = styles.filter(s => s.name === name)[0]
+  let durationArr = styleObj.durationRanges[duration]
+  return random(durationArr, 1);
 }
 
-function numberOfMovements(style, duration){
-  let num;
-  switch(style, duration){
-    case 'AMRAP' && 'short':
-      num = random(range(2, 3));
-      break;
-    case 'AMRAP' && 'moderate':
-      num = random(range(3, 4));
-      break;
-    case 'AMRAP' && 'long':
-      num = random(range(5, 6));
-      break;
-    case 'EMOM':
-      num = random(range(1,2));
-      break;
-    case '3RFT' && 'short':
-      num = random(range(2, 3));
-      break;
-    case '3RFT' && 'moderate':
-      num = 3;
-      break;
-    case '5RFT' && 'long':
-      num = random(range(4, 5));
-      break;
-    case 'E3MOM' && 'long':
-      num = random(range(2, 3));
-      break;
-    default:
-      num = 'invalid';
-  }
-  return num;
+
+function chooseReps() {
+
 }
+
 
 function zip(arr1, arr2) {
   let zipped = [];
@@ -96,8 +72,7 @@ module.exports = {
   random,
   range,
   chooseStyle,
-  showAMRAP,
-  // numberOfMovements,
-  //reps,
+  chooseNumberOfMovements,
+  //chooseReps,
   zip
 }

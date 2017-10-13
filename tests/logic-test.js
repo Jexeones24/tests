@@ -62,14 +62,15 @@ assert(actual === expected)
 
 
 //numberOfMovements
-  // AMRAP, EMOM, 3RFT, 5RFT, E3MOM objs
-  console.log(logic.showAMRAP().moderate.high)
+let style = 'AMRAP';
+duration = 'long';
+let durationArr = [5, 6]
+expected = true;
+actual = durationArr.includes(logic.chooseNumberOfMovements(style, duration)[0]);
+assert(actual === expected)
 
 
-
-
-
-//reps
+//chooseReps
 
 
 // zip

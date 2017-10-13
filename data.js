@@ -37,23 +37,48 @@ const movements = [
   }
 ]
 
-const AMRAP = {
-  short: {
-    low: 5,
-    high: 6
+
+
+const styles = [
+  {
+    name: 'AMRAP',
+    durationRanges: {
+      short: [2, 3],
+      moderate: [3, 4],
+      long: [5, 6]
+    }
   },
-  moderate: {
-    low: 5,
-    high: 6
+  {
+    name: 'EMOM',
+    durationRanges: {
+      short: [1, 2]
+    }
   },
-  long: {
-    low: 5,
-    high: 6
+  {
+    name: '3RFT',
+    durationRanges: {
+      short: [2, 3],
+      moderate: [3, 4]
+    }
+  },
+  {
+    name: '5RFT',
+    durationRanges: {
+      long: [4, 5]
+    }
+  },
+  {
+    name: 'E3MOM',
+    durationRanges: {
+      long: [2, 3]
+    }
   }
-}
+]
+
+
 
 
 module.exports = {
   movements,
-  AMRAP
+  styles
 }
