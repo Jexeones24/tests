@@ -37,5 +37,23 @@ const movements = [
   }
 ]
 
+const AMRAP = {
+  short: {
+    low: 5,
+    high: 6
+  },
+  moderate: {
+    low: 5,
+    high: 6
+  },
+  long: {
+    low: 5,
+    high: 6
+  }
+}
 
-module.exports = movements;
+
+module.exports = {
+  movements,
+  AMRAP
+}

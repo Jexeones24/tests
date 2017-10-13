@@ -1,12 +1,17 @@
 const shortAndModerateStyles = ['AMRAP', '3RFT', 'EMOM']
 const longStyles = ['AMRAP', '5RFT', 'E3MOM']
-const movementsArr = require('../movements.js');
+const movementsArr = require('../data.js');
 
-console.log(movementsArr)
 
+// check for valid time domain
 // needs to also accept number of elements to choose
-function random(arr){
-  return arr[Math.floor(Math.random() * arr.length)]
+
+function random(arr, numOfItems){
+  if(Array.isArray(arr) === false){
+    return 'not an array'
+  }
+  arr.sort(el => 0.5 - Math.random());
+  return arr.slice(0, numOfItems);
 }
 
 
@@ -17,6 +22,7 @@ function range(low, high) {
   }
   return rangeArr;
 }
+
 
 function duration(timeDomain){
   if(range(6, 15).includes(timeDomain)){
@@ -29,12 +35,16 @@ function duration(timeDomain){
 }
 
 function chooseStyle(duration) {
-  let style;
-  if(duration == 'short' || duration == 'moderate'){
-    return style = random(shortAndModerateStyles);
+  if(duration === 'short' || duration === 'moderate'){
+    return random(shortAndModerateStyles, 1);
   } else {
-    return style = random(longStyles);
+    return random(longStyles, 1);
   }
+}
+
+// put these in movements file and import at top??
+function showAMRAP(){
+  return movementsArr.AMRAP;
 }
 
 function numberOfMovements(style, duration){
@@ -70,21 +80,14 @@ function numberOfMovements(style, duration){
   return num;
 }
 
-
-function where(obj, property) {
-  return obj[property]
-}
-
-
 function zip(arr1, arr2) {
-  return arr1.map((el, idx) => {
-    return el, arr2[idx];
-  })
-}
-
-
-function display(workoutArray) {
-  workoutArray.forEach(arr => console.log(arr.join(" ")))
+  let zipped = [];
+  arr1.map((el, idx) => {
+    let newArr = [];
+    newArr.push(el, arr2[idx]);
+    zipped.push(newArr);
+  });
+  return zipped;
 }
 
 
@@ -92,9 +95,9 @@ module.exports = {
   duration,
   random,
   range,
-  numberOfMovements,
   chooseStyle,
-  where,
-  zip,
-  display
+  showAMRAP,
+  // numberOfMovements,
+  //reps,
+  zip
 }
