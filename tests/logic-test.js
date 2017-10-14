@@ -1,5 +1,7 @@
 const assert = require('assert')
 const logic = require('../src/logic')
+const data = require('../data.js');
+const movements = data.movements;
 
 // random
 // check for type array
@@ -56,6 +58,7 @@ let shortAndModerateStyles = ['AMRAP', '3RFT', 'EMOM']
 let longStyles = ['AMRAP', '5RFT', 'E3MOM']
 let duration = 'long';
 expected = true;
+// seems sketchy - test fails if solved without making a nested array?
 actual = longStyles.includes(logic.chooseStyle(duration)[0]);
 assert(actual === expected)
 
@@ -70,7 +73,53 @@ actual = durationArr.includes(logic.chooseNumberOfMovements(style, duration)[0])
 assert(actual === expected)
 
 
-//chooseReps
+// chooseMovements
+let movementsArr = movements;
+let numberOfMovements = 2;
+let chosen = [
+  {
+  name: 'Squat',
+  type: 'Weightlifting',
+  secondsPerRep: 3,
+  url: ''
+  },
+  {
+    name: 'Pullup',
+    type: 'Gymnastics',
+    secondsPerRep: 2,
+    url: ''
+  }
+]
+
+// check for correct number chosen
+expected = 2;
+actual = chosen.length;
+assert(expected === actual);
+
+
+// check if subarray exists?
+function isIncluded(chosenMovement, index, movementsArr) {
+  return movementsArr.includes(chosenMovement);
+}
+
+expected = true;
+actual = (logic.chooseMovements(3)).every(isIncluded)
+assert(actual === expected);
+
+
+// skillLevelFactor
+
+
+
+
+
+// chooseRepsForRounds
+  // total work time should not exceed timeDomain
+// chooseRepsForEMOM
+// chooseRepsForAMRAP
+
+
+
 
 
 // zip

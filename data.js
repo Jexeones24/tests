@@ -2,36 +2,42 @@ const movements = [
   {
     name: 'Squat',
     type: 'Weightlifting',
+    skill: 'low',
     secondsPerRep: 3,
     url: ''
   },
   {
     name: 'Pullup',
     type: 'Gymnastics',
+    skill: 'high',
     secondsPerRep: 2,
     url: ''
   },
   {
     name: 'Wallball',
     type: 'Odd Object',
-    secondsPerRep: 4,
+    skill: 'moderate',
+    secondsPerRep: 3,
     url: ''
   },
   {
     name: 'Snatch',
     type: 'Olympic Weightlifting',
+    skill: 'high',
     secondsPerRep: 4,
     url: ''
   },
   {
     name: 'Muscle-up',
     type: 'Gymnastics',
+    skill: 'high',
     secondsPerRep: 6,
     url: ''
   },
   {
     name: 'Box Jump',
     type: 'Plyometrics',
+    skill: 'low',
     secondsPerRep: 3,
     url: ''
   }

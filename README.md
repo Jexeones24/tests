@@ -34,22 +34,5 @@ let chosenMovements = random(movements, numberOfMovements)
 
 ## REPS
 // creates reps array
-// each element corresponds to respective movement in chosenMovements array
-
-const totalWorkTime = (timeDomain * 60) * .75
-const timePerMovement = totalWorkTime/numberOfMovements
-const reps = timePerMovement/movement.secondsPerRep
-
-// define a where() function to get seconds property from movement object???
-// define rep generator that checks secondsPerRep property on movement
-// based on numberOfMovements and style
-
-const getReps = () => {
-  // takes a movement and assigns reps
-}
-
-// let repsArray = movements.map( m => m.getReps(); )
-
-
 
 // use zip() to construct workout??

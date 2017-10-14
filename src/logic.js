@@ -50,10 +50,57 @@ function chooseNumberOfMovements(name, duration) {
   return random(durationArr, 1);
 }
 
-
-function chooseReps() {
-
+function chooseMovements(num) {
+  return random(movements, num);
 }
+
+const calculateTotalWorkTime = (timeDomain) => Math.floor((timeDomain * 60) * .75);
+
+
+// calculates time per movement based on skill
+const skillLevelFactor = (movement, timePerMovement) => {
+  if(movement.skill === 'high'){
+    let secondsToSubtract = 15;
+    let factor = Math.floor(timePerMovement/45);
+    return timePerMovement - (secondsToSubtract * factor);
+  } else if(movement.skill === 'moderate'){
+    let secondsToSubtract = 6;
+    let factor = Math.floor(timePerMovement/45);
+    return timePerMovement - (secondsToSubtract * factor);
+  } else {
+    return timePerMovement;
+  }
+}
+
+// returns array of times => (3) [450, 300, 390]
+const calculateTimePerMovement = (timeDomain, chosenMovements) => {
+  let totalWorkTime = calculateTotalWorkTime(timeDomain);
+  let timePerMovement = totalWorkTime/chosenMovements.length;
+  return chosenMovements.map(m => skillLevelFactor(m, timePerMovement));
+}
+
+
+// chosenMovements = [{}, {}, {}]
+// based on per min
+function chooseRepsForEMOM(timeDomain, chosenMovements) {
+  let timesArr = calculateTimePerMovement(timeDomain, chosenMovements)
+  return chosenMovements.map((m, i) => Math.floor(timesArr[i]/m.secondsPerRep)/timeDomain);
+}
+
+// divide totalWorkTime/# of rounds
+function chooseRepsForRounds(timeDomain, style, chosenMovements) {
+  let rounds = style.split('').shift();
+  let timePerMovement = calculateTimePerMovement(timeDomain, chosenMovements);
+  let timePerMovementPerRound = timePerMovement.map(t => t/rounds);
+  return chosenMovements.map((m, i) => Math.round(Math.ceil(timePerMovePerRound[i]/m.secondsPerRep)));
+}
+
+function chooseRepsForAMRAP() {
+  // ????
+}
+
+
+// switch for choosing reps for style
 
 
 function zip(arr1, arr2) {
@@ -73,6 +120,7 @@ module.exports = {
   range,
   chooseStyle,
   chooseNumberOfMovements,
-  //chooseReps,
+  chooseMovements,
+  chooseReps,
   zip
 }
